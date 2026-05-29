@@ -120,15 +120,20 @@
 
         /* Hero */
         .hero {
-            padding: 14px 0 10px;
-            text-align: center;
+            padding: 12px 0 8px;
+        }
+        .hero-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
         }
         .hero h1 {
-            font-size: 1.25rem;
+            font-size: 1.15rem;
             font-weight: 800;
             letter-spacing: -0.5px;
-            margin-bottom: 6px;
             color: var(--text-primary);
+            white-space: nowrap;
         }
         .hero h1 span {
             background: var(--gradient-primary);
@@ -137,22 +142,23 @@
             background-clip: text;
         }
         .stats-bar {
-            display: inline-flex;
-            gap: 16px;
+            display: flex;
+            gap: 20px;
             background: var(--bg-secondary);
             border: 1px solid var(--border-color);
-            padding: 5px 14px;
+            padding: 6px 16px;
             border-radius: 8px;
+            flex-shrink: 0;
         }
         .stats-bar .num {
-            font-size: 1rem;
+            font-size: 1.1rem;
             font-weight: 800;
             color: var(--text-primary);
             display: block;
             line-height: 1.1;
         }
         .stats-bar .lbl {
-            font-size: 0.65rem;
+            font-size: 0.7rem;
             color: var(--text-muted);
             font-weight: 500;
         }
@@ -340,14 +346,22 @@
                 gap: 12px;
             }
         }
+        @media (max-width: 640px) {
+            .hero-inner {
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+            }
+            .hero h1 { font-size: 1.2rem; }
+            .stats-bar { gap: 16px; padding: 5px 14px; }
+        }
         @media (max-width: 375px) {
             .container { padding: 0 12px; }
             .header { height: 48px; }
             .hero { padding: 10px 0 8px; }
-            .hero h1 { font-size: 1.15rem; }
-            .hero p { font-size: 0.78rem; margin-bottom: 10px; }
-            .stats-bar { gap: 18px; padding: 6px 14px; }
-            .stats-bar .num { font-size: 1.05rem; }
+            .hero h1 { font-size: 1.05rem; }
+            .stats-bar { gap: 14px; padding: 5px 12px; }
+            .stats-bar .num { font-size: 1rem; }
             .stats-bar .lbl { font-size: 0.65rem; }
             .filters { gap: 4px; margin-bottom: 12px; }
             .filter-btn { padding: 4px 10px; font-size: 0.7rem; }
@@ -380,7 +394,7 @@
 
     <main>
         <section class="hero">
-            <div class="container">
+            <div class="container hero-inner">
                 <h1><span>项目</span>作品集</h1>
                 <div class="stats-bar">
                     <div><span class="num" id="statTotal">25</span><span class="lbl">项目</span></div>
