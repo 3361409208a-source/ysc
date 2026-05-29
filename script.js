@@ -128,7 +128,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 "Windows 10/11，Python 标准库 tkinter，零依赖"
             ],
             tech: "Python · tkinter · 多线程",
-            url: "https://github.com/3361409208a-source/LeaveClean"
+            url: "https://github.com/3361409208a-source/LeaveClean",
+            demoUrl: "https://leave-clean.vercel.app/"
         },
         {
             name: "WenBrowser",
