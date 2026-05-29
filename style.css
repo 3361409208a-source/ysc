@@ -1650,7 +1650,11 @@ a:hover .repo-link i {
         padding: 60px 0;
     }
     .hero-title {
-        font-size: 2.6rem;
+        font-size: 2.2rem;
+    }
+    .typewriter-container {
+        font-size: 1.2rem;
+        height: 32px;
     }
     .mobile-toggle {
         display: flex;
@@ -1696,5 +1700,240 @@ a:hover .repo-link i {
     .modal-grid-meta {
         grid-template-columns: 1fr;
         padding: 16px;
+    }
+}
+
+/* iPhone 13 mini & small screens (375px) */
+@media (max-width: 375px) {
+    :root {
+        --header-height: 64px;
+    }
+    .container {
+        padding: 0 16px;
+    }
+    .section-padding {
+        padding: 48px 0;
+    }
+    .section-title {
+        font-size: 1.8rem;
+    }
+    .section-subtitle {
+        font-size: 0.95rem;
+    }
+
+    /* Hero */
+    .hero-section {
+        padding-top: calc(var(--header-height) + 32px);
+        padding-bottom: 48px;
+    }
+    .hero-title {
+        font-size: 1.8rem;
+        letter-spacing: -1px;
+        margin-bottom: 12px;
+    }
+    .typewriter-container {
+        font-size: 1rem;
+        height: 28px;
+        margin-bottom: 16px;
+    }
+    .hero-description {
+        font-size: 0.9rem;
+        margin-bottom: 24px;
+    }
+    .hero-actions {
+        flex-direction: column;
+        gap: 12px;
+        margin-bottom: 32px;
+    }
+    .hero-actions .btn {
+        width: 100%;
+        justify-content: center;
+        padding: 14px 20px;
+        min-height: 48px;
+    }
+    .hero-links {
+        gap: 16px;
+    }
+    .social-link {
+        font-size: 0.9rem;
+    }
+
+    /* Hero visual card */
+    .visual-card {
+        max-width: 100%;
+    }
+    .card-inner {
+        padding: 16px;
+    }
+    .code-body {
+        font-size: 0.75rem;
+    }
+    .code-header {
+        margin-bottom: 12px;
+        padding-bottom: 8px;
+    }
+
+    /* About */
+    .about-text {
+        font-size: 0.9rem;
+    }
+    .info-details {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+    .about-stats-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+    }
+    .stat-card {
+        padding: 20px 12px;
+    }
+    .stat-number {
+        font-size: 2rem;
+    }
+    .stat-plus {
+        font-size: 1.2rem;
+    }
+    .stat-label {
+        font-size: 0.75rem;
+    }
+
+    /* Skills */
+    .skills-category-card {
+        padding: 24px;
+    }
+    .category-title {
+        font-size: 1.1rem;
+    }
+    .skills-list li {
+        font-size: 0.85rem;
+    }
+
+    /* Timeline */
+    .timeline-item {
+        padding-left: 40px;
+        margin-bottom: 24px;
+    }
+    .timeline::after {
+        left: 14px;
+    }
+    .timeline-dot {
+        left: 5px;
+        width: 18px;
+        height: 18px;
+    }
+    .timeline-content {
+        padding: 20px;
+    }
+    .job-title {
+        font-size: 1.1rem;
+    }
+    .company-name {
+        font-size: 0.75rem;
+    }
+    .job-description {
+        font-size: 0.85rem;
+    }
+    .job-bullets li {
+        font-size: 0.82rem;
+    }
+
+    /* Open Source */
+    .repo-card {
+        padding: 20px;
+    }
+    .repo-username {
+        font-size: 1.05rem;
+    }
+    .repo-desc {
+        font-size: 0.85rem;
+        margin-bottom: 16px;
+    }
+    .repo-footer {
+        gap: 10px;
+    }
+
+    /* Contact */
+    .contact-card {
+        padding: 16px;
+        gap: 12px;
+    }
+    .contact-icon-wrapper {
+        width: 44px;
+        height: 44px;
+    }
+    .contact-value {
+        font-size: 0.9rem;
+    }
+    .btn-copy {
+        right: 12px;
+        width: 40px;
+        height: 40px;
+    }
+    .contact-form-wrapper {
+        padding: 24px;
+    }
+
+    /* Modal */
+    .modal {
+        padding: 12px;
+    }
+    .modal-card {
+        padding: 24px 16px;
+        border-radius: 16px;
+    }
+    .modal-project-title {
+        font-size: 1.4rem;
+        margin-bottom: 16px;
+    }
+    .modal-section-title {
+        font-size: 1.05rem;
+    }
+    .modal-p {
+        font-size: 0.85rem;
+    }
+    .modal-list li {
+        font-size: 0.85rem;
+        padding-left: 18px;
+    }
+
+    /* Toast: move to center-bottom to avoid home indicator */
+    .toast-container {
+        bottom: 20px;
+        right: 50%;
+        transform: translateX(50%);
+        align-items: center;
+    }
+    .toast {
+        min-width: 240px;
+        padding: 12px 16px;
+    }
+
+    /* Footer */
+    .footer-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 12px;
+    }
+    .copyright {
+        font-size: 0.8rem;
+    }
+    .footer-links {
+        font-size: 0.85rem;
+        gap: 16px;
+    }
+
+    /* Buttons touch target */
+    .btn {
+        min-height: 48px;
+    }
+    .theme-toggle, .mobile-toggle {
+        width: 40px;
+        height: 40px;
+    }
+
+    /* Scroll indicator hide on tiny screens */
+    .scroll-indicator {
+        display: none;
     }
 }
