@@ -128,6 +128,11 @@
             align-items: center;
             gap: 16px;
         }
+        .hero-left {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
         .hero h1 {
             font-size: 1.15rem;
             font-weight: 800;
@@ -140,6 +145,11 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+        }
+        .hero-left p {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            line-height: 1.4;
         }
         .stats-bar {
             display: flex;
@@ -352,7 +362,9 @@
                 gap: 10px;
                 text-align: center;
             }
+            .hero-left { align-items: center; }
             .hero h1 { font-size: 1.2rem; }
+            .hero-left p { font-size: 0.78rem; }
             .stats-bar { gap: 16px; padding: 5px 14px; }
         }
         @media (max-width: 375px) {
@@ -360,6 +372,7 @@
             .header { height: 48px; }
             .hero { padding: 10px 0 8px; }
             .hero h1 { font-size: 1.05rem; }
+            .hero-left p { font-size: 0.72rem; }
             .stats-bar { gap: 14px; padding: 5px 12px; }
             .stats-bar .num { font-size: 1rem; }
             .stats-bar .lbl { font-size: 0.65rem; }
@@ -395,7 +408,10 @@
     <main>
         <section class="hero">
             <div class="container hero-inner">
-                <h1><span>项目</span>作品集</h1>
+                <div class="hero-left">
+                    <h1><span>项目</span>作品集</h1>
+                    <p>涵盖 Web 全栈、跨端开发、AI 工具、桌面应用与游戏领域的 25 个开源项目</p>
+                </div>
                 <div class="stats-bar">
                     <div><span class="num" id="statTotal">25</span><span class="lbl">项目</span></div>
                     <div><span class="num" id="statDemo">6</span><span class="lbl">可体验</span></div>
