@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>杨顺超 | 个人简历与作品展示博客</title>
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="杨顺超的个人博客与作品展示简历。专注于前端开发、跨端原生开发（HarmonyOS/Uni-app/React Native）及 AI 辅助编程，拥有高性能 Web 应用与小程序独立开发部署经验。">
+    <meta name="keywords" content="杨顺超, 前端开发, 跨端开发, 鸿蒙开发, 微信小程序, Vue, React, Next.js, Vercel, 简历, 作品集">
+    <meta name="author" content="杨顺超">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="light-theme">
+    <!-- 头部导航 -->
+    <header class="header">
+        <div class="container nav-container">
+            <a href="#hero" class="logo">
+                <span class="logo-accent">&lt;</span>YSC<span class="logo-accent">.Dev /&gt;</span>
+            </a>
+            <nav class="nav-menu" id="navMenu">
+                <a href="#about" class="nav-link">关于我</a>
+                <a href="#skills" class="nav-link">专业技能</a>
+                <a href="#experience" class="nav-link">实习经历</a>
+                <a href="#opensource" class="nav-link">开源仓库</a>
+                <a href="#contact" class="nav-link">联系我</a>
+            </nav>
+            <div class="nav-actions">
+                <button class="theme-toggle" id="themeToggle" aria-label="切换主题">
+                    <i data-lucide="sun" class="sun-icon"></i>
+                    <i data-lucide="moon" class="moon-icon"></i>
+                </button>
+                <button class="mobile-toggle" id="mobileToggle" aria-label="打开菜单">
+                    <i data-lucide="menu"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero 首屏 -->
+        <section id="hero" class="hero-section">
+            <div class="background-glow"></div>
+            <div class="container hero-container">
+                <div class="hero-content">
+                    <div class="badge">
+                        <span class="badge-dot"></span> 寻找 2026 届正式工作机会
+                    </div>
+                    <h1 class="hero-title">
+                        你好，我是 <span class="gradient-text">杨顺超</span>
+                    </h1>
+                    <div class="typewriter-container">
+                        <span>一名 </span><span class="typewriter-text" id="typewriter"></span><span class="cursor">|</span>
+                    </div>
+                    <p class="hero-description">
+                        熟练掌握 HTML5/CSS3/JavaScript 与 TypeScript，深入应用 Vue 与 React 生态。擅长跨端开发（Uni-app/HarmonyOS ArkTS/React Native）及微信小程序独立开发。善用 AI 工具提效，具备从零开发到云端公网发布的完整实战能力。
+                    </p>
+                    <div class="hero-actions">
+                        <a href="#projects" class="btn btn-primary">
+                            <span>查看作品</span>
+                            <i data-lucide="arrow-right"></i>
+                        </a>
+                        <a href="#contact" class="btn btn-secondary">
+                            <span>获取联系方式</span>
+                            <i data-lucide="mail"></i>
+                        </a>
+                    </div>
+                    <div class="hero-links">
+                        <a href="https://github.com/3361409208a-source" target="_blank" rel="noopener noreferrer" class="social-link" title="GitHub">
+                            <i data-lucide="github"></i>
+                            <span>GitHub</span>
+                        </a>
+                        <a href="https://gitee.com/hualuoshi/projects" target="_blank" rel="noopener noreferrer" class="social-link" title="Gitee">
+                            <i data-lucide="git-pull-request"></i>
+                            <span>Gitee</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="visual-card">
+                        <div class="card-glow"></div>
+                        <div class="card-inner">
+                            <div class="code-header">
+                                <div class="dot dot-red"></div>
+                                <div class="dot dot-yellow"></div>
+                                <div class="dot dot-green"></div>
+                                <span class="code-title">DeveloperProfile.ts</span>
+                            </div>
+                            <pre class="code-body"><code><span class="keyword">const</span> developer = {
+  name: <span class="string">'杨顺超'</span>,
+  age: <span class="number">22</span>,
+  education: {
+    school: <span class="string">'湖南网络工程职业学院'</span>,
+    major: <span class="string">'移动应用开发 (2023 - 2026)'</span>
+  },
+  skills: [
+    <span class="string">'Vue3/React/Next.js'</span>,
+    <span class="string">'TypeScript/ArkTS'</span>,
+    <span class="string">'Uni-app/WeChatMiniProgram'</span>,
+    <span class="string">'Node.js/Spring Boot'</span>
+  ],
+  philosophy: <span class="string">'AI 驱动 & 体验至上'</span>
+};
+
+<span class="keyword">function</span> <span class="function">optimize</span>(code: Code): Value {
+  <span class="keyword">return</span> AI.assist(code)
+    .refactor()
+    .boostPerformance();
+}</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="scroll-indicator">
+                <span class="mouse">
+                    <span class="wheel"></span>
+                </span>
+                <span class="scroll-text">向下滑动</span>
+            </div>
+        </section>
+
+        <!-- 关于我 & 核心数据 -->
+        <section id="about" class="about-section section-padding">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">关于我</h2>
+                    <p class="section-subtitle">专注技术沉淀，用 AI 赋能产品落地</p>
+                </div>
+                <div class="about-grid">
+                    <div class="about-info-card">
+                        <p class="about-text">
+                            我是一名移动应用开发专业的应届毕业生，拥有扎实的前端开发底子与前沿的跨端/原生开发思维。在校期间，我不仅通过理论学习打下了坚实基础，更是在<strong>数个大型仿真模拟实训项目</strong>与<strong>毕业设计</strong>中担任UI页面实现、动效开发与接口对接的核心角色。
+                        </p>
+                        <p class="about-text">
+                            我崇尚高效开发，是 <strong>AI 辅助编程的积极实践者</strong>。我熟练运用 Claude Code、Cursor、Windsurf 及 Antigravity 等 AI 编程工具，能够以远超传统开发的速度交付高质量、带有精美过渡动画和优秀用户体验的产品。
+                        </p>
+                        <div class="info-details">
+                            <div class="info-item">
+                                <span class="info-label">学历/专业</span>
+                                <span class="info-value">大专 / 移动应用开发</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">毕业院校</span>
+                                <span class="info-value">湖南网络工程职业学院 (2023-2026)</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">意向岗位</span>
+                                <span class="info-value">前端开发工程师 / 跨端开发工程师</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">工作地点</span>
+                                <span class="info-value">深圳 / 广州 / 长沙 / 远程</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="about-stats-grid">
+                        <div class="stat-card">
+                            <h3 class="stat-number">3<span class="stat-plus">+</span></h3>
+                            <p class="stat-label">开发实战经验 (年)</p>
+                        </div>
+                        <div class="stat-card">
+                            <h3 class="stat-number">6<span class="stat-plus">+</span></h3>
+                            <p class="stat-label">独立/核心参与项目</p>
+                        </div>
+                        <div class="stat-card">
+                            <h3 class="stat-number">100<span class="stat-plus">%</span></h3>
+                            <p class="stat-label">AI 编程工具提效</p>
+                        </div>
+                        <div class="stat-card">
+                            <h3 class="stat-number">3<span class="stat-plus">端</span></h3>
+                            <p class="stat-label">跨端覆盖 (Web/小程序/鸿蒙)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 专业技能 -->
+        <section id="skills" class="skills-section section-padding">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">专业技能</h2>
+                    <p class="section-subtitle">持续演进的现代技术栈全景</p>
+                </div>
+                <div class="skills-grid">
+                    <!-- 前端核心 -->
+                    <div class="skills-category-card">
+                        <div class="category-header">
+                            <i data-lucide="layout" class="category-icon text-cyan"></i>
+                            <h3 class="category-title">前端核心与生态</h3>
+                        </div>
+                        <ul class="skills-list">
+                            <li>熟练掌握 HTML5 / CSS3 / ES6+ JavaScript，具备优秀的语义化页面构建能力。</li>
+                            <li>具备扎实的 <strong>TypeScript</strong> 类型编程能力，熟练进行接口设计与架构抽象。</li>
+                            <li>深入应用 <strong>Vue (2/3)</strong> 生态，包括 Vue Router、Pinia、Vuex 等。</li>
+                            <li>深入应用 <strong>React</strong> 框架及 <strong>Next.js</strong> 服务端渲染生态，具备高性能 Web 应用落地经验。</li>
+                        </ul>
+                    </div>
+
+                    <!-- 跨端与原生 -->
+                    <div class="skills-category-card">
+                        <div class="category-header">
+                            <i data-lucide="smartphone" class="category-icon text-blue-alt"></i>
+                            <h3 class="category-title">跨端与原生开发</h3>
+                        </div>
+                        <ul class="skills-list">
+                            <li>擅长使用 <strong>Uni-app</strong> 进行多端开发，拥有微信小程序从零到独立上线的完整实战能力。</li>
+                            <li>熟悉 <strong>React Native</strong> 跨平台开发流程。</li>
+                            <li>具备 <strong>HarmonyOS (ArkTS)</strong> 原生应用开发经验，能独立设计和实现鸿蒙端智能体应用。</li>
+                            <li>了解 <strong>C# .NET</strong> 等桌面端开发，掌握基础的软件打包与分发流程。</li>
+                        </ul>
+                    </div>
+
+                    <!-- 后端与云端 -->
+                    <div class="skills-category-card">
+                        <div class="category-header">
+                            <i data-lucide="database" class="category-icon text-emerald"></i>
+                            <h3 class="category-title">后端服务与部署</h3>
+                        </div>
+                        <ul class="skills-list">
+                            <li>熟练使用 <strong>Node.js (Express)</strong> 进行后端高并发接口开发与服务构建。</li>
+                            <li>掌握 <strong>Java (Spring Boot)</strong> 企业级应用开发，具备基本的系统架构能力。</li>
+                            <li>掌握 Python 编程，熟悉 <strong>LangChain</strong> 框架大语言模型（LLM）应用接入。</li>
+                            <li>熟练进行 <strong>MySQL</strong> 数据库的设计、查询优化及数据模型建立。</li>
+                            <li>熟悉 <strong>Vercel</strong>、Railway 等云原生托管平台，以及 Namesilo 域名解析与发布。</li>
+                        </ul>
+                    </div>
+
+                    <!-- AI辅助与媒体 -->
+                    <div class="skills-category-card">
+                        <div class="category-header">
+                            <i data-lucide="sparkles" class="category-icon text-amber"></i>
+                            <h3 class="category-title">AI 辅助与数字媒体</h3>
+                        </div>
+                        <ul class="skills-list">
+                            <li>熟练使用 <strong>Claude Code</strong>、Cursor、Windsurf、Antigravity 等前沿 AI 编程工具辅助高效开发。</li>
+                            <li>熟练使用 Adobe 家族多款软件（<strong>Photoshop / After Effects / Premiere</strong>）及剪映。</li>
+                            <li>擅长利用 Midjourney、Stable Diffusion、Suno 等 AI 工具生成图像、视频及音频素材，用于开发界面的快速原型设计与素材填充。</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 实习经历 -->
+        <section id="experience" class="experience-section section-padding">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">实习经历</h2>
+                    <p class="section-subtitle">把技术转化为商业价值的起点</p>
+                </div>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">2025.11 - 2026.06</div>
+                        <div class="timeline-content">
+                            <div class="timeline-header">
+                                <h3 class="job-title">前端开发实习生</h3>
+                                <span class="company-name">深圳天泽教育科技有限公司</span>
+                            </div>
+                            <p class="job-description">
+                                实习期间作为前端开发核心成员，参与了多款教育及实训平台项目的设计开发与重构工作。主要工作职责包括：
+                            </p>
+                            <ul class="job-bullets">
+                                <li>使用 <strong>Vue 3</strong> 和 <strong>Next.js</strong> 独立重构与开发教育平台的前端业务页面，提升渲染性能与首屏加载速度。</li>
+                                <li>基于 <strong>Uni-app</strong> 负责学校移动端实训小程序功能的开发与维护，实现多端设备 UI 高效适配。</li>
+                                <li>与产品经理和 UI 设计师紧密合作，深度引入 AI 工具（如 Cursor、Claude Code）以双倍速度完成复杂的动效及页面切图实现。</li>
+                                <li>参与前后端数据接口对接，调试 API 逻辑，排查和修复生产环境及测试中的各类前端布局及交互 Bug。</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- GitHub 开源仓库展示 -->
+        <section id="opensource" class="opensource-section section-padding">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">GitHub 开源仓库</h2>
+                    <p class="section-subtitle">全部 25 个公开仓库 — 涵盖 AI、游戏、工具、全栈应用</p>
+                </div>
+                <div class="opensource-grid" id="githubReposGrid">
+                </div>
+                <div class="opensource-footer">
+                    <a href="https://github.com/3361409208a-source?tab=repositories" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+                        <span>在 GitHub 上浏览全部</span>
+                        <i data-lucide="arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gitee 主页 -->
+        <section id="gitee" class="opensource-section section-padding" style="padding-top:0;">
+            <div class="container">
+                <div class="opensource-grid" style="grid-template-columns:1fr;">
+                    <a href="https://gitee.com/hualuoshi/projects" target="_blank" rel="noopener noreferrer" class="repo-card gitee-card">
+                        <div class="repo-header">
+                            <i data-lucide="git-pull-request" class="repo-logo"></i>
+                            <span class="platform-name">Gitee</span>
+                        </div>
+                        <h3 class="repo-username">花落时 (hualuoshi)</h3>
+                        <p class="repo-desc">国内开源托管主页，收录了数个基于 Vue 与小程序开发的企业级沙盘实训核心实现和前沿实验项目。</p>
+                        <div class="repo-footer">
+                            <span class="repo-link">
+                                访问 Gitee 主页 <i data-lucide="arrow-right"></i>
+                            </span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 联系我 -->
+        <section id="contact" class="contact-section section-padding">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">联系我</h2>
+                    <p class="section-subtitle">有兴趣合作或有工作机会？随时与我联系！</p>
+                </div>
+                <div class="contact-grid">
+                    <div class="contact-info">
+                        <h3 class="contact-title">联系方式</h3>
+                        <p class="contact-text">如果您正在寻找一名学习能力强、善于用 AI 工具提效的前端/跨端开发工程师，期待您的来信或来电！</p>
+                        
+                        <div class="contact-details">
+                            <div class="contact-card">
+                                <div class="contact-icon-wrapper">
+                                    <i data-lucide="phone" class="contact-icon text-cyan"></i>
+                                </div>
+                                <div class="contact-card-content">
+                                    <span class="contact-label">手机号码</span>
+                                    <span class="contact-value" id="phoneText">15580870358</span>
+                                </div>
+                                <button class="btn-copy" data-clipboard-target="#phoneText" title="复制电话">
+                                    <i data-lucide="copy"></i>
+                                </button>
+                            </div>
+                            <div class="contact-card">
+                                <div class="contact-icon-wrapper">
+                                    <i data-lucide="mail" class="contact-icon text-blue-alt"></i>
+                                </div>
+                                <div class="contact-card-content">
+                                    <span class="contact-label">电子邮箱</span>
+                                    <span class="contact-value" id="emailText">3361409208@qq.com</span>
+                                </div>
+                                <button class="btn-copy" data-clipboard-target="#emailText" title="复制邮箱">
+                                    <i data-lucide="copy"></i>
+                                </button>
+                            </div>
+                            <div class="contact-card">
+                                <div class="contact-icon-wrapper">
+                                    <i data-lucide="map-pin" class="contact-icon text-emerald"></i>
+                                </div>
+                                <div class="contact-card-content">
+                                    <span class="contact-label">目前居住</span>
+                                    <span class="contact-value">湖南 / 长沙</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contact-form-wrapper">
+                        <h3 class="contact-title">发送留言</h3>
+                        <form id="contactForm" class="contact-form">
+                            <div class="form-group">
+                                <label for="formName" class="form-label">您的姓名</label>
+                                <input type="text" id="formName" class="form-input" placeholder="输入您的姓名或公司名称" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="formEmail" class="form-label">您的邮箱</label>
+                                <input type="email" id="formEmail" class="form-input" placeholder="输入您的电子邮箱" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="formMessage" class="form-label">您的留言</label>
+                                <textarea id="formMessage" class="form-textarea" rows="4" placeholder="说点什么吧，比如合作意向或岗位要求..." required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-full">
+                                <span>发送消息</span>
+                                <i data-lucide="send"></i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container footer-container">
+            <p class="copyright">&copy; 2026 杨顺超. 保留所有权利. Powered by Vercel & AI</p>
+            <div class="footer-links">
+                <a href="https://github.com/3361409208a-source" target="_blank" rel="noopener noreferrer">GitHub</a>
+                <a href="https://gitee.com/hualuoshi/projects" target="_blank" rel="noopener noreferrer">Gitee</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 仓库详情模态弹窗 -->
+    <div class="modal" id="repoModal" role="dialog" aria-modal="true" aria-labelledby="repoModalTitle">
+        <div class="modal-backdrop" id="repoModalBackdrop"></div>
+        <div class="modal-wrapper">
+            <div class="modal-card">
+                <button class="modal-close" id="repoModalClose" aria-label="关闭弹窗">
+                    <i data-lucide="x"></i>
+                </button>
+                <div class="modal-content" id="repoModalContent">
+                    <!-- 动态注入内容 -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast 提示通知 -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
