@@ -131,6 +131,22 @@ document.addEventListener('DOMContentLoaded', () => {
             url: "https://github.com/3361409208a-source/LeaveClean"
         },
         {
+            name: "WenBrowser",
+            lang: "C#", langColor: "#178600",
+            desc: "办公隐匿型浏览器 — .NET 8 + WebView2 内核，三段式防御引擎，为职场环境设计的私密浏览空间。",
+            features: [
+                "全局老板键：RegisterHotKey 系统级钩子，瞬间剥离任务栏图标进入伪休眠",
+                "智能焦点淡化：失去焦点 200ms 后透明度平滑过渡至 0.15",
+                "身份伪装标题注入：一键伪装为 财务报告.docx / 项目计划.xlsx 等",
+                "统一色彩令牌系统：樱花粉 / 暗色模式 / 极简透明 / 冷静灰度模式",
+                "专家级快捷键：亮度调节、标签管理、极速最小化",
+                "单文件绿色便携版发布"
+            ],
+            tech: ".NET 8.0 · WebView2 · Win32 API · C# 12.0",
+            url: "https://github.com/3361409208a-source/WenBrowser",
+            demoUrl: "https://www.wenbrowser.top/"
+        },
+        {
             name: "astro-tracks",
             lang: "Vue", langColor: "#41b883",
             desc: "星轨命鉴 (AstroTracks) — 基于 Nuxt.js 的全栈占卜测算综合应用，AI 驱动，覆盖星座运势、塔罗牌占卜与生辰八字命理。",
@@ -218,7 +234,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 "支持 Vercel 一键部署"
             ],
             tech: "React · Vite · DeepSeek API · Web Audio API",
-            url: "https://github.com/3361409208a-source/NetherChamber"
+            url: "https://github.com/3361409208a-source/NetherChamber",
+            demoUrl: "https://nether-chamber.vercel.app/"
         },
         {
             name: "xiaohei-video-station",
@@ -232,7 +249,7 @@ document.addEventListener('DOMContentLoaded', () => {
             ],
             tech: "Next.js · JavaScript · Vercel",
             url: "https://github.com/3361409208a-source/xiaohei-video-station",
-            demoUrl: "https://xiaohei-video-station.vercel.app"
+            demoUrl: "https://www.xiaoheiv.top/"
         },
         {
             name: "Virtual-Director",
@@ -323,21 +340,6 @@ document.addEventListener('DOMContentLoaded', () => {
             url: "https://github.com/3361409208a-source/PureBattleGame"
         },
         {
-            name: "WenBrowser",
-            lang: "C#", langColor: "#178600",
-            desc: "办公隐匿型浏览器 — .NET 8 + WebView2 内核，三段式防御引擎，为职场环境设计的私密浏览空间。",
-            features: [
-                "全局老板键：RegisterHotKey 系统级钩子，瞬间剥离任务栏图标进入伪休眠",
-                "智能焦点淡化：失去焦点 200ms 后透明度平滑过渡至 0.15",
-                "身份伪装标题注入：一键伪装为 财务报告.docx / 项目计划.xlsx 等",
-                "统一色彩令牌系统：樱花粉 / 暗色模式 / 极简透明 / 冷静灰度模式",
-                "专家级快捷键：亮度调节、标签管理、极速最小化",
-                "单文件绿色便携版发布"
-            ],
-            tech: ".NET 8.0 · WebView2 · Win32 API · C# 12.0",
-            url: "https://github.com/3361409208a-source/WenBrowser"
-        },
-        {
             name: "phone-webcam",
             lang: "HTML", langColor: "#e34c26",
             desc: "将手机变成电脑系统级虚拟摄像头 — WebRTC 局域网传输，无需在手机安装 App，兼容 Zoom/Teams/腾讯会议。",
@@ -402,7 +404,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 "零配置 Vercel 部署"
             ],
             tech: "Next.js · TypeScript · Vercel",
-            url: "https://github.com/3361409208a-source/WenBrowser-web"
+            url: "https://github.com/3361409208a-source/WenBrowser-web",
+            demoUrl: "https://www.wenbrowser.top/"
         },
         {
             name: "Audio-Volume-Visualizer",
