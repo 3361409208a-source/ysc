@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>项目作品集 | 杨顺超</title>
+    <meta name="description" content="杨顺超的开源项目作品集，涵盖前端、跨端、AI工具与桌面应用开发。">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        :root {
+            --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-mono: 'Fira Code', monospace;
+            --container-width: 1200px;
+
+            --bg-primary: #090d16;
+            --bg-secondary: #0f172a;
+            --bg-tertiary: #1e293b;
+            --bg-card: rgba(15, 23, 42, 0.7);
+            --border-color: rgba(255, 255, 255, 0.08);
+            --border-color-hover: rgba(255, 255, 255, 0.15);
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --text-muted: #64748b;
+
+            --accent-cyan: #06b6d4;
+            --accent-blue: #3b82f6;
+            --accent-emerald: #10b981;
+            --accent-amber: #f59e0b;
+            --accent-red: #ef4444;
+            --accent-green: #22c55e;
+
+            --gradient-primary: linear-gradient(135deg, #06b6d4 0%, #3b82f6 100%);
+            --gradient-hover: linear-gradient(135deg, #0891b2 0%, #2563eb 100%);
+
+            --shadow-md: 0 8px 30px rgba(0, 0, 0, 0.3);
+            --shadow-lg: 0 16px 40px rgba(0, 0, 0, 0.4);
+            --shadow-glow-cyan: 0 0 25px rgba(6, 182, 212, 0.2);
+
+            --transition-fast: 0.2s ease;
+            --transition-normal: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        body.light-theme {
+            --bg-primary: #ffffff;
+            --bg-secondary: #fcfcfd;
+            --bg-tertiary: #f3f4f6;
+            --bg-card: rgba(255, 255, 255, 0.9);
+            --border-color: rgba(0, 0, 0, 0.05);
+            --border-color-hover: rgba(0, 0, 0, 0.09);
+            --text-primary: #0f172a;
+            --text-secondary: #475569;
+            --text-muted: #94a3b8;
+
+            --accent-cyan: #0891b2;
+            --accent-blue: #2563eb;
+            --accent-emerald: #059669;
+            --accent-amber: #d97706;
+
+            --gradient-primary: linear-gradient(135deg, #0891b2 0%, #2563eb 100%);
+            --gradient-hover: linear-gradient(135deg, #0e7490 0%, #1d4ed8 100%);
+
+            --shadow-md: 0 8px 30px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 16px 40px rgba(0, 0, 0, 0.1);
+            --shadow-glow-cyan: 0 0 25px rgba(8, 145, 178, 0.1);
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; font-size: 16px; }
+        body {
+            font-family: var(--font-body);
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+            transition: background-color var(--transition-normal), color var(--transition-normal);
+            -webkit-font-smoothing: antialiased;
+        }
+        a { color: inherit; text-decoration: none; }
+        button { font-family: inherit; cursor: pointer; border: none; background: none; outline: none; }
+
+        .container {
+            width: 100%;
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Header */
+        .header {
+            position: sticky;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 64px;
+            background-color: var(--bg-card);
+            backdrop-filter: saturate(180%) blur(15px);
+            -webkit-backdrop-filter: saturate(180%) blur(15px);
+            border-bottom: 1px solid var(--border-color);
+            z-index: 1000;
+            transition: background-color var(--transition-normal), border-color var(--transition-normal);
+        }
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 100%;
+        }
+        .logo {
+            font-weight: 800;
+            font-size: 1.25rem;
+            letter-spacing: -0.5px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .logo span {
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .theme-toggle {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            background-color: var(--bg-tertiary);
+            border: 1px solid var(--border-color);
+            color: var(--text-primary);
+            transition: var(--transition-fast);
+        }
+        .theme-toggle:hover {
+            background-color: var(--bg-primary);
+            border-color: var(--border-color-hover);
+        }
+        .theme-toggle .sun-icon { display: none; }
+        .theme-toggle .moon-icon { display: block; }
+        body.light-theme .theme-toggle .sun-icon { display: block; }
+        body.light-theme .theme-toggle .moon-icon { display: none; }
+        .back-link {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+            padding: 8px 14px;
+            border-radius: 10px;
+            background-color: var(--bg-tertiary);
+            border: 1px solid var(--border-color);
+            transition: var(--transition-fast);
+        }
+        .back-link:hover {
+            color: var(--text-primary);
+            border-color: var(--border-color-hover);
+        }
+        .back-link i { width: 16px; height: 16px; }
+
+        /* Hero */
+        .hero {
+            padding: 60px 0 40px;
+            text-align: center;
+        }
+        .hero h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            letter-spacing: -1.5px;
+            margin-bottom: 12px;
+        }
+        .hero h1 span {
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .hero p {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            max-width: 560px;
+            margin: 0 auto 32px;
+        }
+        .stats-bar {
+            display: inline-flex;
+            gap: 32px;
+            background-color: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            padding: 16px 32px;
+            border-radius: 16px;
+        }
+        .stats-bar .num {
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: var(--text-primary);
+            display: block;
+            line-height: 1;
+        }
+        .stats-bar .lbl {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        /* Filters */
+        .filters {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 32px;
+            flex-wrap: wrap;
+        }
+        .filter-btn {
+            padding: 10px 18px;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            background-color: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            transition: all var(--transition-fast);
+            white-space: nowrap;
+        }
+        .filter-btn:hover {
+            color: var(--text-primary);
+            border-color: var(--border-color-hover);
+        }
+        .filter-btn.active {
+            background: var(--gradient-primary);
+            color: #ffffff;
+            border-color: transparent;
+        }
+
+        /* Grid */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        /* Card */
+        .project-card {
+            background-color: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 28px;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+            transition: transform var(--transition-normal), border-color var(--transition-normal), box-shadow var(--transition-normal);
+        }
+        .project-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--border-color-hover);
+            box-shadow: var(--shadow-glow-cyan);
+        }
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--gradient-primary);
+            opacity: 0;
+            transition: opacity var(--transition-normal);
+        }
+        .project-card:hover::before {
+            opacity: 1;
+        }
+        .project-card[data-demo="true"] {
+            border-color: rgba(6, 182, 212, 0.2);
+        }
+        .project-card[data-demo="true"]::after {
+            content: '可体验';
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            color: var(--accent-green);
+            background: rgba(34, 197, 94, 0.1);
+            border: 1px solid rgba(34, 197, 94, 0.2);
+            padding: 3px 8px;
+            border-radius: 20px;
+            letter-spacing: 0.5px;
+        }
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 16px;
+        }
+        .card-lang-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+        .card-lang {
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .card-title {
+            font-size: 1.15rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            line-height: 1.3;
+        }
+        .card-desc {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+            line-height: 1.6;
+            display: -webkit-box;
+            -webkit-line-clamp: 4;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            flex-grow: 1;
+        }
+        .card-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-bottom: 16px;
+        }
+        .tag {
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+            background-color: var(--bg-tertiary);
+            padding: 4px 10px;
+            border-radius: 6px;
+        }
+        .card-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: auto;
+        }
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 10px 16px;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            transition: transform var(--transition-fast), box-shadow var(--transition-fast), background var(--transition-normal);
+            flex: 1;
+            justify-content: center;
+            min-height: 40px;
+        }
+        .btn:active { transform: scale(0.98); }
+        .btn-primary {
+            background: var(--gradient-primary);
+            color: #ffffff;
+        }
+        .btn-primary:hover {
+            background: var(--gradient-hover);
+            box-shadow: 0 4px 12px rgba(6, 182, 212, 0.25);
+        }
+        .btn-secondary {
+            background-color: var(--bg-tertiary);
+            color: var(--text-primary);
+            border: 1px solid var(--border-color);
+        }
+        .btn-secondary:hover {
+            background-color: var(--bg-primary);
+            border-color: var(--border-color-hover);
+        }
+        .btn i { width: 14px; height: 14px; }
+
+        /* Footer */
+        .footer {
+            border-top: 1px solid var(--border-color);
+            background-color: var(--bg-secondary);
+            padding: 32px 0;
+            margin-top: 60px;
+            text-align: center;
+        }
+        .footer p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .projects-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        @media (max-width: 768px) {
+            html { font-size: 15px; }
+            .hero { padding: 48px 0 32px; }
+            .hero h1 { font-size: 2rem; }
+            .stats-bar { gap: 24px; padding: 14px 24px; }
+            .projects-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+        }
+        @media (max-width: 375px) {
+            .container { padding: 0 16px; }
+            .hero { padding: 36px 0 24px; }
+            .hero h1 { font-size: 1.6rem; letter-spacing: -1px; }
+            .hero p { font-size: 0.9rem; margin-bottom: 20px; }
+            .stats-bar {
+                gap: 20px;
+                padding: 12px 20px;
+                border-radius: 12px;
+            }
+            .stats-bar .num { font-size: 1.3rem; }
+            .stats-bar .lbl { font-size: 0.7rem; }
+            .filter-btn { padding: 8px 14px; font-size: 0.8rem; }
+            .project-card { padding: 20px; border-radius: 16px; }
+            .card-title { font-size: 1.05rem; }
+            .card-desc { font-size: 0.85rem; -webkit-line-clamp: 3; }
+            .btn { padding: 12px 14px; font-size: 0.8rem; min-height: 44px; }
+            .footer { padding: 24px 0; margin-top: 40px; }
+            .back-link { padding: 6px 10px; font-size: 0.8rem; }
+            .back-link span { display: none; }
+        }
+    </style>
+</head>
+<body class="dark-theme">
+    <header class="header">
+        <div class="container header-inner">
+            <a href="/" class="logo">
+                <i data-lucide="code-2"></i>
+                <span>YSC.Dev</span>
+            </a>
+            <div class="nav-actions">
+                <a href="/" class="back-link">
+                    <i data-lucide="arrow-left"></i>
+                    <span>返回简历</span>
+                </a>
+                <button class="theme-toggle" id="themeToggle" aria-label="切换主题">
+                    <i data-lucide="sun" class="sun-icon"></i>
+                    <i data-lucide="moon" class="moon-icon"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h1><span>项目</span>作品集</h1>
+                <p>涵盖 Web 全栈、跨端开发、AI 工具、桌面应用与游戏领域的 25 个开源项目。</p>
+                <div class="stats-bar">
+                    <div><span class="num" id="statTotal">25</span><span class="lbl">项目总数</span></div>
+                    <div><span class="num" id="statDemo">6</span><span class="lbl">可在线体验</span></div>
+                    <div><span class="num" id="statLang">9</span><span class="lbl">技术语言</span></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="container" style="padding-bottom: 40px;">
+            <div class="filters" id="filters">
+                <button class="filter-btn active" data-filter="all">全部项目</button>
+                <button class="filter-btn" data-filter="demo">可在线体验</button>
+                <button class="filter-btn" data-filter="web">Web / 小程序</button>
+                <button class="filter-btn" data-filter="desktop">桌面 / 原生</button>
+                <button class="filter-btn" data-filter="ai">AI 工具</button>
+                <button class="filter-btn" data-filter="game">游戏</button>
+            </div>
+
+            <div class="projects-grid" id="projectsGrid"></div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>杨顺超 (YSC.Dev) 作品集</p>
+        </div>
+    </footer>
+
+    <script>
+        // Theme toggle
+        const themeToggle = document.getElementById('themeToggle');
+        const body = document.body;
+        const savedTheme = localStorage.getItem('theme') || 'dark-theme';
+        body.className = savedTheme;
+        themeToggle.addEventListener('click', () => {
+            if (body.classList.contains('dark-theme')) {
+                body.classList.replace('dark-theme', 'light-theme');
+                localStorage.setItem('theme', 'light-theme');
+            } else {
+                body.classList.replace('light-theme', 'dark-theme');
+                localStorage.setItem('theme', 'dark-theme');
+            }
+        });
+
+        // Project data
+        const projects = [
+            {
+                name: "WenBrowser",
+                lang: "C#", langColor: "#178600",
+                desc: "办公隐匿型浏览器 — .NET 8 + WebView2 内核，三段式防御引擎，全局老板键、焦点淡化、标题伪装。",
+                tags: [".NET", "Win32 API", "桌面应用"],
+                url: "https://github.com/3361409208a-source/WenBrowser",
+                demoUrl: "https://www.wenbrowser.top/",
+                category: ["desktop"]
+            },
+            {
+                name: "星轨命鉴 AstroTracks",
+                lang: "Vue", langColor: "#41b883",
+                desc: "基于 Nuxt.js 的全栈占卜测算综合应用，覆盖星座运势、塔罗占卜与生辰八字命理，AI 驱动。",
+                tags: ["Nuxt.js", "Vue 3", "全栈"],
+                url: "https://github.com/3361409208a-source/astro-tracks",
+                demoUrl: "https://astro-tracks.vercel.app",
+                category: ["web", "ai"]
+            },
+            {
+                name: "深海捕鱼 Why-The-Fish",
+                lang: "TypeScript", langColor: "#3178c6",
+                desc: "PIXI.js 高性能渲染引擎的捕鱼游戏，多元化武器系统与动态经济体系。",
+                tags: ["PIXI.js", "TypeScript", "游戏"],
+                url: "https://github.com/3361409208a-source/Why-The-Fish-Has-A-Gun",
+                demoUrl: "https://why-the-fish-has-a-gun.vercel.app",
+                category: ["game", "web"]
+            },
+            {
+                name: "幽冥阁 NetherChamber",
+                lang: "JavaScript", langColor: "#f1e05a",
+                desc: "暗黑恐怖小说生成器。React + DeepSeek API，Web Audio 实时合成音效，打字机匀速落笔。",
+                tags: ["React", "Vite", "DeepSeek", "Web Audio"],
+                url: "https://github.com/3361409208a-source/NetherChamber",
+                demoUrl: "https://nether-chamber.vercel.app/",
+                category: ["web", "ai"]
+            },
+            {
+                name: "小黑视频站",
+                lang: "JavaScript", langColor: "#f1e05a",
+                desc: "基于 Next.js 的视频平台，Geist 字体优化，零配置部署 Vercel。",
+                tags: ["Next.js", "视频平台"],
+                url: "https://github.com/3361409208a-source/xiaohei-video-station",
+                demoUrl: "https://www.xiaoheiv.top/",
+                category: ["web"]
+            },
+            {
+                name: "WenBrowser Web",
+                lang: "TypeScript", langColor: "#3178c6",
+                desc: "WenBrowser 配套 Web 前端 — Next.js 项目，Geist 字体优化，零配置部署。",
+                tags: ["Next.js", "TypeScript"],
+                url: "https://github.com/3361409208a-source/WenBrowser-web",
+                demoUrl: "https://www.wenbrowser.top/",
+                category: ["web"]
+            },
+            {
+                name: "LeaveClean",
+                lang: "Python", langColor: "#3572A5",
+                desc: "离职数据清理助手 — 9 大清理模块，先扫描、后预览、再清理，防止误删个人隐私数据。",
+                tags: ["Python", "tkinter", "隐私工具"],
+                url: "https://github.com/3361409208a-source/LeaveClean",
+                category: ["desktop", "tool"]
+            },
+            {
+                name: "AI Skills Arena",
+                lang: "TypeScript", langColor: "#3178c6",
+                desc: "基于 Google Gemini API 的 AI 技能竞技平台，快速验证和展示 AI 应用创意。",
+                tags: ["TypeScript", "Node.js", "Gemini API"],
+                url: "https://github.com/3361409208a-source/AI-Skills-Arena",
+                category: ["ai", "web"]
+            },
+            {
+                name: "AI 变异鱼工厂",
+                lang: "Python", langColor: "#3572A5",
+                desc: "全流程 AI 游戏资产流水线。集成文生图、图生图进化、智能抠图与批量生产。",
+                tags: ["Python", "Gradio", "Stable Diffusion", "游戏资产"],
+                url: "https://github.com/3361409208a-source/AI-Image-Processor",
+                category: ["ai", "desktop", "game"]
+            },
+            {
+                name: "桌面蟑螂模拟器",
+                lang: "Python", langColor: "#3572A5",
+                desc: "一群虚拟小强入侵 Windows 桌面！透明覆盖层，自由爬行、躲避鼠标、觅食饮水。",
+                tags: ["Python", "Pygame", "Win32 API"],
+                url: "https://github.com/3361409208a-source/cockroach-invasion",
+                category: ["desktop", "game"]
+            },
+            {
+                name: "Virtual Director",
+                lang: "Python", langColor: "#3572A5",
+                desc: "用一句话生成 3D 电影 — AI 多智能体协作，Godot 4 实时渲染 + SSE 全链路反馈。",
+                tags: ["FastAPI", "React", "Godot 4", "DeepSeek", "FFmpeg"],
+                url: "https://github.com/3361409208a-source/Virtual-Director",
+                category: ["ai", "desktop", "web"]
+            },
+            {
+                name: "Form AutoFill Debugger",
+                lang: "JavaScript", langColor: "#f1e05a",
+                desc: "跨浏览器扩展：一键填充表单、选择选项、监听网络请求。支持 Chrome/Edge/Firefox。",
+                tags: ["JavaScript", "Chrome Extension", "Manifest V3"],
+                url: "https://github.com/3361409208a-source/browser-extension",
+                category: ["tool", "web"]
+            },
+            {
+                name: "Windsurf Account Pro",
+                lang: "TypeScript", langColor: "#3178c6",
+                desc: "Windsurf 账号注册 Chrome 扩展 — 自动化表单填充、验证码检测与账单信息一键填写。",
+                tags: ["TypeScript", "Chrome Extension"],
+                url: "https://github.com/3361409208a-source/Windsurf-Account-Pro",
+                category: ["tool", "web"]
+            },
+            {
+                name: "鲜切水果追溯系统",
+                lang: "TypeScript", langColor: "#3178c6",
+                desc: "Node.js + Express + React 全栈，企业注册/JWT 认证，生产批次管理 + 消费者扫码追溯。",
+                tags: ["Node.js", "Express", "React", "SQLite", "JWT"],
+                url: "https://github.com/3361409208a-source/Fresh-Fruit-Trace",
+                category: ["web"]
+            },
+            {
+                name: "React + Vite 模板",
+                lang: "JavaScript", langColor: "#f1e05a",
+                desc: "集成 HMR、ESLint 规则、React Compiler 可选，快速启动 Web3 或通用前端应用开发。",
+                tags: ["React", "Vite"],
+                url: "https://github.com/3361409208a-source/-Web3",
+                category: ["web"]
+            },
+            {
+                name: "纯战枢纽 PureBattle",
+                lang: "C#", langColor: "#178600",
+                desc: ".NET 8 WinForms 模块化桌面游戏合集。内置塔防 + 像素电子宠 AI 桌面宠物。",
+                tags: [".NET 8", "WinForms", "GDI+", "游戏"],
+                url: "https://github.com/3361409208a-source/PureBattleGame",
+                category: ["desktop", "game"]
+            },
+            {
+                name: "手机虚拟摄像头",
+                lang: "HTML", langColor: "#e34c26",
+                desc: "将手机变成电脑系统级虚拟摄像头 — WebRTC 局域网传输，兼容 Zoom/Teams/腾讯会议。",
+                tags: ["TypeScript", "Node.js", "Socket.IO", "WebRTC", "Python"],
+                url: "https://github.com/3361409208a-source/phone-webcam",
+                category: ["tool", "web"]
+            },
+            {
+                name: "老虎机",
+                lang: "TypeScript", langColor: "#3178c6",
+                desc: "基于 TypeScript 的电子老虎机模拟器，经典玩法与随机中奖判定。",
+                tags: ["TypeScript", "游戏"],
+                url: "https://github.com/3361409208a-source/laohuji",
+                category: ["game", "web"]
+            },
+            {
+                name: "微信 AI 工作室",
+                lang: "TypeScript", langColor: "#3178c6",
+                desc: "AI 驱动的写作与发布工作台，集成大语言模型能力，智能写作辅助。",
+                tags: ["TypeScript", "AI", "微信小程序"],
+                url: "https://github.com/3361409208a-source/WeChat-AI-Studio",
+                category: ["ai", "web"]
+            },
+            {
+                name: "Claude Code 源码分析",
+                lang: "TypeScript", langColor: "#3178c6",
+                desc: "从 npm 包解编译出 ~1884 个 TypeScript 源文件，包含 5 份深度分析报告。",
+                tags: ["TypeScript", "Bun", "逆向分析"],
+                url: "https://github.com/3361409208a-source/claude-code-source-code",
+                category: ["ai", "tool"]
+            },
+            {
+                name: "音频音量可视化",
+                lang: "TypeScript", langColor: "#3178c6",
+                desc: "AI Studio 应用，基于 Google Gemini API，实时音频输入可视化波形与频谱。",
+                tags: ["TypeScript", "Gemini API"],
+                url: "https://github.com/3361409208a-source/Audio-Volume-Visualizer",
+                category: ["ai", "web"]
+            },
+            {
+                name: "鼠标滚轮修复",
+                lang: "C#", langColor: "#178600",
+                desc: "滚轮编码器磨损导致上下抖动时，用软件过滤 <8ms 方向反转抖动，零成本修复。",
+                tags: ["C#", ".NET 10", "Win32 钩子"],
+                url: "https://github.com/3361409208a-source/wheelfix",
+                category: ["desktop", "tool"]
+            },
+            {
+                name: "鼠标双击修复",
+                lang: "C#", langColor: "#178600",
+                desc: "解决微动开关老化导致的单击变双击问题，通过软件过滤抖动信号延长鼠标寿命。",
+                tags: ["C#", ".NET", "Win32 API"],
+                url: "https://github.com/3361409208a-source/DoubleClickFix-CN",
+                category: ["desktop", "tool"]
+            },
+            {
+                name: "Octopus 像素机器人",
+                lang: "C#", langColor: "#178600",
+                desc: "像素八爪鱼机器人在桌面自由移动、战斗，拥有独立 CMD 终端和 AI 思考能力。",
+                tags: [".NET 8", "WinForms", "GDI+", "SiliconFlow AI"],
+                url: "https://github.com/3361409208a-source/Octopus",
+                category: ["desktop", "game", "ai"]
+            },
+            {
+                name: "Octopus 1.0",
+                lang: "TypeScript", langColor: "#3178c6",
+                desc: "八爪鱼 AI 终端管理桌面宠物 — Electron + React，用 8 个触手可视化管理多个 AI 终端。",
+                tags: ["Electron", "React 18", "TypeScript", "node-pty", "xterm.js"],
+                url: "https://github.com/3361409208a-source/Octopus1.0",
+                category: ["desktop", "ai"]
+            }
+        ];
+
+        // Render projects
+        const grid = document.getElementById('projectsGrid');
+        const statTotal = document.getElementById('statTotal');
+        const statDemo = document.getElementById('statDemo');
+        const statLang = document.getElementById('statLang');
+
+        const uniqueLangs = new Set(projects.map(p => p.lang));
+        statTotal.textContent = projects.length;
+        statDemo.textContent = projects.filter(p => p.demoUrl).length;
+        statLang.textContent = uniqueLangs.size;
+
+        function renderProjects(filter = 'all') {
+            grid.innerHTML = '';
+            let filtered = projects;
+
+            if (filter === 'demo') {
+                filtered = projects.filter(p => p.demoUrl);
+            } else if (filter !== 'all') {
+                filtered = projects.filter(p => p.category && p.category.includes(filter));
+            }
+
+            filtered.forEach(p => {
+                const card = document.createElement('div');
+                card.className = 'project-card';
+                card.dataset.demo = !!p.demoUrl;
+                card.dataset.category = (p.category || []).join(',');
+
+                const tagsHtml = p.tags.map(t => `<span class="tag">${t}</span>`).join('');
+                const demoBtn = p.demoUrl
+                    ? `<a href="${p.demoUrl}" target="_blank" rel="noopener noreferrer" class="btn btn-primary"><i data-lucide="globe"></i> 体验</a>`
+                    : '';
+                const githubBtn = `<a href="${p.url}" target="_blank" rel="noopener noreferrer" class="btn btn-secondary"><i data-lucide="github"></i> 源码</a>`;
+
+                card.innerHTML = `
+                    <div class="card-header">
+                        <span class="card-lang-dot" style="background:${p.langColor}"></span>
+                        <span class="card-lang">${p.lang}</span>
+                    </div>
+                    <h3 class="card-title">${p.name}</h3>
+                    <p class="card-desc">${p.desc}</p>
+                    <div class="card-tags">${tagsHtml}</div>
+                    <div class="card-actions">
+                        ${githubBtn}
+                        ${demoBtn}
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+
+            lucide.createIcons();
+        }
+
+        // Filter buttons
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                renderProjects(btn.dataset.filter);
+            });
+        });
+
+        renderProjects();
+    </script>
+</body>
+</html>
