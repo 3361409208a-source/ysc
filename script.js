@@ -145,7 +145,7 @@ document.addEventListener('DOMContentLoaded', () => {
             ],
             tech: ".NET 8.0 · WebView2 · Win32 API · C# 12.0",
             url: "https://github.com/3361409208a-source/WenBrowser",
-            demoUrl: "https://www.wenbrowser.top/"
+            demoUrl: "https://www.wenbrowser.top/download"
         },
         {
             name: "astro-tracks",
